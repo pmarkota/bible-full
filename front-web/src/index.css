@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#1C1F2E] text-gray-100;
+    font-family: "Spectral", serif;
+    background: linear-gradient(to bottom, #1a1a2e, #2d2d2d);
+    min-height: 100vh;
+  }
+}
+
+/* Biblical theme colors */
+:root {
+  --color-primary: #b8a161;
+  --color-primary-light: #d4c28d;
+  --color-bg-dark: #1c1f2e;
+  --color-bg-light: #2a2f42;
+  --color-text: #e5e5e5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#2A2F42];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#B8A161] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#D4C28D];
+}
+
+/* Common components */
+.biblical-input {
+  @apply w-full px-4 py-3 rounded-lg bg-[#2d1f1f] border border-[#B8A161]/20 text-[#B8A161] placeholder-[#B8A161]/40 focus:outline-none focus:border-[#B8A161]/40 focus:ring-1 focus:ring-[#B8A161]/40 transition-colors;
+  font-size: 1rem;
+}
+
+.biblical-button {
+  @apply w-full py-3 px-4 rounded-lg bg-gradient-to-r from-[#B8A161] to-[#D4C28D] hover:from-[#D4C28D] hover:to-[#B8A161] text-[#1C1F2E] font-medium transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg;
+  font-weight: 500;
+}
+
+.biblical-card {
+  @apply bg-[#2d1f1f] rounded-lg border border-[#B8A161]/10 shadow-xl backdrop-blur-sm transition-all duration-300;
+}
+
+.biblical-card:hover {
+  @apply border-[#B8A161]/30 transform -translate-y-1;
+  box-shadow: 0 10px 30px -5px rgba(184, 161, 97, 0.2);
+}
+
+.biblical-title {
+  @apply font-medium text-[#B8A161] leading-tight;
+  font-size: 2rem;
+}
+
+.biblical-quote {
+  @apply italic text-[#B8A161]/80;
+}
+
+/* Navigation */
+.nav-link {
+  @apply text-[#B8A161]/80 hover:text-[#B8A161] transition-colors px-3 py-2 rounded-md text-sm font-medium;
+}
+
+.nav-link.active {
+  @apply text-[#B8A161] bg-[#B8A161]/10;
+}
+
+/* Card hover effect */
+.hover-card {
+  @apply transition-all duration-300 bg-[#2d1f1f] border border-[#B8A161]/10 rounded-lg p-6 backdrop-blur-sm;
+}
+
+.hover-card:hover {
+  @apply transform -translate-y-1 border-[#B8A161]/30;
+  box-shadow: 0 10px 30px -5px rgba(184, 161, 97, 0.2);
+}
+
+/* Dashboard specific */
+.dashboard-section {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.dashboard-header {
+  @apply text-center mb-12;
+}
+
+.dashboard-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Profile specific */
+.profile-container {
+  @apply max-w-3xl mx-auto px-4;
+}
+
+.profile-section {
+  @apply space-y-6 bg-[#2d1f1f] rounded-lg p-8 border border-[#B8A161]/10 backdrop-blur-sm;
+}
+
+/* Form elements */
+.form-group {
+  @apply space-y-1;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-[#B8A161]/80;
+}
+
+/* Glass effect */
+.glass-effect {
+  @apply bg-[#2d1f1f]/90 backdrop-blur-md border border-[#B8A161]/20;
+}
+
+/* Card effects */
+.glow-effect {
+  position: relative;
+}
+
+.glow-effect::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, #b8a161, #d4c28d);
+  filter: blur(15px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.glow-effect:hover::after {
+  opacity: 0.15;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Modern card layouts */
+.modern-card {
+  @apply biblical-card glow-effect p-6 relative overflow-hidden;
+}
+
+.modern-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b8a161, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modern-card:hover::before {
+  opacity: 1;
+}
